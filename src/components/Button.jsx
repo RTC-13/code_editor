@@ -7,7 +7,9 @@ const Button = ({title, onClick}) => {
           maxWidth: "140px",
           minWidth: "80px",
           height: "30px",
-          marginRight: "5px"
+          marginRight: "5px",
+          borderRadius: "5px",
+          backgroundColor: "Highlight"
         }}
         onClick={onClick}
       >

@@ -11,9 +11,6 @@ import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/css/css';
 
-import 'codemirror/addon/edit/closebrackets';
-import 'codemirror/addon/edit/closetag';
-
 import { Controlled as ControlledEditorComponent } from 'react-codemirror2';
 
 
@@ -21,6 +18,7 @@ import { Controlled as ControlledEditorComponent } from 'react-codemirror2';
 const Editor = ({ language, value, setEditorState }) => {
 
   const [theme, setTheme] = useState("dracula")
+  
   const handleChange = (editor, data, value) => {
     setEditorState(value);
   }
@@ -51,8 +49,6 @@ const Editor = ({ language, value, setEditorState }) => {
           mode: language,
           lineNumbers: true,
           theme: theme,
-          autoCloseTags: true,
-          autoCloseBrackets: true, 
         }}
       />
     </div>
