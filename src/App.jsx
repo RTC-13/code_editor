@@ -113,10 +113,10 @@ function App() {
           height="100%"
         />
         </div>
-      <pre>
+      {openedEditor === "python" ? <pre>
           <code>{stdout}</code>
           <code>{stderr}</code>
-      </pre>
+      </pre> : ""}
       </div>
     </div>
   );
