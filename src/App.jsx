@@ -11,11 +11,11 @@ import Editor from './components/Editor';
 function App() {
   const { runPython, stdout, stderr, isLoading, isRunning } = usePython()
 
-  const [srcDoc, setSrcDoc] = useState(` `);
+  const [srcDoc, setSrcDoc] = useState(``);
   const [html, setHtml] = useState('');
   const [css, setCss] = useState('');
   const [js, setJs] = useState('');
-  const [python, setPython] = useState()
+  const [python, setPython] = useState("")
 
   const [openedEditor, setOpenedEditor] = useState('html');
 
@@ -91,7 +91,8 @@ function App() {
           ) : (
             <div>
               <Button title="Run" onClick={() => {
-                runPython(python)
+                      runPython(python)
+                      console.log("python ran")
               }}/>
               <Editor
               language="python"
@@ -104,22 +105,17 @@ function App() {
         }
         <div>
           <iframe
-          hidden={openedEditor === "python" ? "true" : "false"}
+          hidden={openedEditor === "python" ? true : false}
           srcDoc={srcDoc}
           title="output"
           sandbox="allow-scripts"
-          frameBorder="1"
           width="100%"
           height="100%"
         />
         </div>
-        <p>Output</p>
       <pre>
-        <code>{stdout}</code>
-      </pre>
-      <p>Error</p>
-      <pre>
-        <code>{stderr}</code>
+          <code>{stdout}</code>
+          <code>{stderr}</code>
       </pre>
       </div>
     </div>
